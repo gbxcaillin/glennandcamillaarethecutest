@@ -25,7 +25,7 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing
 .frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .frame video{width:100%;height:100%;display:block;object-fit:cover}
 .chap{position:absolute;left:0;right:0;bottom:0;padding:18px 24px;background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,0));display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none}
-.chap .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,3vw,30px);font-style:italic;color:var(--paper)}
+.chap .t{max-width:100%;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,3vw,30px);font-style:italic;color:var(--paper)}
 .chap .n{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold2)}
 .dots{display:flex;gap:8px}.dots i{width:8px;height:8px;border-radius:50%;background:rgba(201,162,77,.3)}.dots i.on{background:var(--gold2)}
 .ctl{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -76,6 +76,16 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing
 .mute{position:fixed;top:16px;right:16px;z-index:50;width:48px;height:48px;border-radius:50%;border:1px solid var(--gold);background:rgba(18,17,16,.85);color:var(--gold2);display:none;align-items:center;justify-content:center;cursor:pointer;padding:0}
 .mute.show{display:flex}.mute:hover{background:var(--gold);color:var(--ink)}
 .mute svg{width:22px;height:22px}
+
+.hero .shade{background:linear-gradient(180deg,rgba(18,17,16,.62) 0%,rgba(18,17,16,.28) 26%,rgba(18,17,16,.22) 48%,rgba(18,17,16,.72) 72%,rgba(18,17,16,.96) 92%,#121110 100%)}
+.hero .top,.hero .title{text-shadow:0 1px 2px rgba(0,0,0,.9),0 4px 18px rgba(0,0,0,.65)}
+.hero .kicker,.hero .no,.hero .occ{text-shadow:0 1px 2px rgba(0,0,0,.95),0 2px 10px rgba(0,0,0,.7)}
+@media (max-width:620px){
+  .hero{height:460px} .top{top:28px} .title{bottom:30px}
+  .kicker,.hero .no{letter-spacing:.2em;font-size:10px} .brand{font-size:22px}
+  .title .occ{letter-spacing:.2em;font-size:11px} .title h1{font-size:42px;line-height:1.02}
+  .mute{top:auto;bottom:16px;right:16px}
+}
 </style>
 </head>
 <body>
@@ -160,9 +170,9 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing
 
 <script>
 var scenes=[
-  {src:"https://cdn.openart.ai/openart-ai/production/2026-10/create-video/nN90WiPr5Ngn0IWrVHQd/sample_0_1792651819612_78d45ccd.mp4",t:"Falling in love",n:"Scene one"},
-  {src:"https://cdn.openart.ai/openart-ai/production/2026-10/create-video/nN90WiPr5Ngn0IWrVHQd/sample_0_1792651837739_9170e22a.mp4",t:"The wedding",n:"Scene two"},
-  {src:"https://cdn.openart.ai/openart-ai/production/2026-10/create-video/nN90WiPr5Ngn0IWrVHQd/sample_0_1792651829562_e3bfb36e.mp4",t:"The gift",n:"Scene three"}
+  {src:"https://cdn.openart.ai/openart-ai/production/2026-10/create-video/nN90WiPr5Ngn0IWrVHQd/sample_0_1792651819612_78d45ccd.mp4",t:"Falling in love",n:""},
+  {src:"https://cdn.openart.ai/openart-ai/production/2026-10/create-video/nN90WiPr5Ngn0IWrVHQd/sample_0_1792651837739_9170e22a.mp4",t:"The wedding",n:""},
+  {src:"https://cdn.openart.ai/openart-ai/production/2026-10/create-video/nN90WiPr5Ngn0IWrVHQd/sample_0_1792651829562_e3bfb36e.mp4",t:"The gift voucher from Caillin, Kirra and Sullivan",n:""}
 ];
 var i=0,v=document.getElementById('v');
 function show(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('on')});document.getElementById(id).classList.add('on');window.scrollTo(0,0);}
